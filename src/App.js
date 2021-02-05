@@ -1,22 +1,53 @@
 import logo from './logo.svg';
+import {useEffect, useState} from 'react';
+import axios from 'axios';
 import './App.css';
 
-function App() {
+const App = ({
+
+}) => {
+  const [data, setdata] = useState("");
+  const [timers, settimers] = useState("");
+  const [temp, settemp] = useState("");
+
+  useEffect(() => {
+    data || getData();
+  }, [data]);
+
+  const getData = () => {
+    axios.get('https://timers-comp-heater.herokuapp.com/data')
+    .then(res => {
+      console.log(res);
+      settimers(res.data.timers);
+      settemp(res.data.temp);
+    })
+  };
+
+  function NewlineText(props) {
+    const text = props.text;
+    return text.split(',').map(str => 
+      <tr>
+        <td>{str.split('=')[0]}:</td>
+        <td>{str.split('=')[1]}</td>
+      </tr>
+    );
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        <h1>Timers</h1>
+        <div>
+          <NewlineText text={timers} />
+        </div>
+
+        <br/>
+
+        <h1>Temperature</h1>
+        <div>
+          <NewlineText text={temp} />
+        </div>
       </header>
     </div>
   );
