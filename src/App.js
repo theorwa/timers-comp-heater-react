@@ -38,16 +38,17 @@ const App = ({
       <header className="App-header">
 
         <h1>Timers</h1>
-        <div>
+        {timers && <div>
           <NewlineText text={timers} />
-        </div>
+        </div>}
 
         <br/>
 
         <h1>Temperature</h1>
-        <div>
+        {temp && <div>
           <NewlineText text={temp} />
-        </div>
+        </div>}
+        
       </header>
     </div>
   );
