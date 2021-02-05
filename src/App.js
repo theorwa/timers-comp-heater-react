@@ -38,7 +38,7 @@ const App = ({
     <div className="App">
       <header className="App-header">
 
-        { (!timers || !temp) ? (<img className='loading' src={loading} alt="Loading" width="200" height="200" />) 
+        { (!timers || !temp) ? (null) // (<img className='loading' src={loading} alt="Loading" width="200" height="200" />) 
         : (<div className="App-header">
           <h1>Timers</h1>
           <div>
