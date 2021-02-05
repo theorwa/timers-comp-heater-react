@@ -21,3 +21,7 @@ td {
   text-align: left;
   font-weight: bold;
 }
+
+.loading {
+  padding-top: 200px;
+}

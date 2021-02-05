@@ -1,7 +1,8 @@
 import logo from './logo.svg';
+import loading from './loading.gif';
+import './App.css';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import './App.css';
 
 const App = ({
 
@@ -37,18 +38,21 @@ const App = ({
     <div className="App">
       <header className="App-header">
 
-        <h1>Timers</h1>
-        {timers && <div>
-          <NewlineText text={timers} />
-        </div>}
+        { (!timers || !temp) ? (<img className='loading' src={loading} alt="Loading" width="200" height="200" />) 
+        : (<div className="App-header">
+          <h1>Timers</h1>
+          <div>
+            <NewlineText text={timers} />
+          </div>
 
-        <br/>
+          <br/>
 
-        <h1>Temperature</h1>
-        {temp && <div>
-          <NewlineText text={temp} />
-        </div>}
-        
+          <h1>Temperature</h1>
+          <div>
+            <NewlineText text={temp} />
+          </div>
+        </div>) }
+
       </header>
     </div>
   );
