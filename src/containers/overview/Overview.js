@@ -27,7 +27,7 @@ const Overview = ({
   const NewlineText = (props) => {
     const text = props.text;
     return text.split(',').map(str => 
-      <tr>
+      <tr key={str}>
         <td>{str.split('=')[0]}:</td>
         <td>{str.split('=')[1]}</td>
       </tr>
@@ -47,16 +47,20 @@ const Overview = ({
         : (<div className="timer-container">
         
           <h1>Timers</h1>
-          <div>
-            <NewlineText text={timers} />
-          </div>
+          <table>
+            <tbody>
+                <NewlineText text={timers} />
+            </tbody>
+          </table>
 
           <br/>
 
           <h1>Temperature</h1>
-          <div>
-            <NewlineText text={temp} />
-          </div>
+          <table>
+            <tbody>
+                <NewlineText text={temp} />
+            </tbody>
+          </table>
           
         </div>) }
 
