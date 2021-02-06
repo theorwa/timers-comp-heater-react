@@ -1,10 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Overview from './containers/overview/Overview.js';
-import Login from './containers/login/Login.js';
-import App from './App.js';
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'; 
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
