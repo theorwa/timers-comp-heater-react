@@ -46,7 +46,7 @@ const Overview = ({
         { (!timers || !temp) ? (null) // (<img className='loading' src={loading} alt="Loading" width="200" height="200" />) 
         : (<div className="timer-container">
         
-          <h1>Timers</h1>
+          <p>Timers</p>
           <table>
             <tbody>
                 <NewlineText text={timers} />
@@ -55,7 +55,7 @@ const Overview = ({
 
           <br/>
 
-          <h1>Temperature</h1>
+          <p>Temperature</p>
           <table>
             <tbody>
                 <NewlineText text={temp} />
@@ -64,7 +64,11 @@ const Overview = ({
           
         </div>) }
 
+
       </header>
+
+        
+
     </div>
   );
 }

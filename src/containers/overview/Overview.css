@@ -39,6 +39,8 @@ td {
     margin: 10px;
 }
 
-h1 {
+p {
+    font-size: calc(20px + 2vmin);
+    font-weight: bold;
     color:gold;
 }
