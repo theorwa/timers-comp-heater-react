@@ -1,0 +1,27 @@
+/* @media all and (min-width: 480px) {
+    .Login {
+        padding: 60px 0;
+    }
+
+    .Login form {
+        margin: 0 auto;
+        max-width: 320px;
+    }
+} */
+
+.Login {
+    padding: 60px 0;
+    margin: 0 auto;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(1px + 2vmin);
+    color: white;
+}
+
+.Login form {
+    margin: 0 auto;
+    width: 320px;
+}
