@@ -7,7 +7,7 @@ import axios from 'axios';
 const Overview = ({
     setlogin,
 }) => {
-  const [data, setdata] = useState("");
+  const [data, setdata] = useState();
   const [timers, settimers] = useState("");
   const [temp, settemp] = useState("");
 
@@ -17,8 +17,10 @@ const Overview = ({
 
   const getData = () => {
     axios.get('https://timers-comp-heater.herokuapp.com/data')
+    // axios.get('http://localhost:3000/data')
     .then(res => {
       console.log(res);
+      setdata(res.data);
       settimers(res.data.timers);
       settemp(res.data.temp);
     })
@@ -43,6 +45,7 @@ const Overview = ({
     <div className="Overview">
       <header className="Overview-header">
         <Button size="sm" className="Logout" onClick={logoutAction}>Logout</Button>
+        <Button size="sm" className="Refresh" onClick={getData}>Refresh Data</Button>
         { (!timers || !temp) ? (null) // (<img className='loading' src={loading} alt="Loading" width="200" height="200" />) 
         : (<div className="timer-container">
         
