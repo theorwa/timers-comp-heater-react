@@ -30,7 +30,7 @@ const Overview = ({
     const text = props.text;
     return text.split(',').map(str => 
       <tr key={str}>
-        <td>{str.split('=')[0]}:</td>
+        <td>{str.split('=')[0]}</td>
         <td>{str.split('=')[1]}</td>
       </tr>
     );
