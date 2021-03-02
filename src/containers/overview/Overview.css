@@ -49,3 +49,7 @@ p {
     font-weight: bold;
     color:gold;
 }
+
+.loader {
+    padding-top: 200px;
+}

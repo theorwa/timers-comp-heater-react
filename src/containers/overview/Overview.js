@@ -3,6 +3,7 @@ import './Overview.css';
 import { Button } from "react-bootstrap";
 import {useEffect, useState} from 'react';
 import axios from 'axios';
+import Loader from "react-loader-spinner";
 
 const Overview = ({
     setlogin,
@@ -44,28 +45,40 @@ const Overview = ({
   return (
     <div className="Overview">
       <header className="Overview-header">
-        <Button size="sm" className="Logout" onClick={logoutAction}>Logout</Button>
-        <Button size="sm" className="Refresh" onClick={getData}>Refresh Data</Button>
-        { (!timers || !temp) ? (null) // (<img className='loading' src={loading} alt="Loading" width="200" height="200" />) 
-        : (<div className="timer-container">
-        
-          <p>Timers</p>
-          <table>
-            <tbody>
-                <NewlineText text={timers} />
-            </tbody>
-          </table>
+        { (!timers || !temp)
+        // ? (null) // (<img className='loading' src={loading} alt="Loading" width="200" height="200" />) 
+        ? (<>
+          <Loader
+            className="loader"
+            type="Circles"
+            color="#00BFFF"
+            height={300}
+            width={300}
+            // radius={100}
+            timeout={10000} //10 secs
+          />
+          </>)
+        : (<>
+            <Button size="sm" className="Logout" onClick={logoutAction}>Logout</Button>
+            <Button size="sm" className="Refresh" onClick={getData}>Refresh Data</Button>
+            <div className="timer-container">
+              <p>Timers</p>
+              <table>
+                <tbody>
+                    <NewlineText text={timers} />
+                </tbody>
+              </table>
 
-          <br/>
+              <br/>
 
-          <p>Temperature</p>
-          <table>
-            <tbody>
-                <NewlineText text={temp} />
-            </tbody>
-          </table>
-          
-        </div>) }
+              <p>Temperature</p>
+              <table>
+                <tbody>
+                    <NewlineText text={temp} />
+                </tbody>
+              </table>
+            </div>
+          </>)}
 
 
       </header>
