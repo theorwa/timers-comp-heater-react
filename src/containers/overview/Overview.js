@@ -11,7 +11,8 @@ const Overview = ({
   const [data, setdata] = useState();
   const [timers, settimers] = useState("");
   const [temp, settemp] = useState("");
-
+  const [disableRefresh, setdisableRefresh] = useState(false);
+  
   useEffect(() => {
     data || getData();
   }, [data]);
@@ -25,6 +26,10 @@ const Overview = ({
       settimers(res.data.timers);
       settemp(res.data.temp);
     })
+    setdisableRefresh(true);
+    setTimeout(function () {
+      setdisableRefresh(false);
+    }, 10000);
   };
 
   const NewlineText = (props) => {
@@ -60,7 +65,7 @@ const Overview = ({
           </>)
         : (<>
             <Button size="sm" className="Logout" onClick={logoutAction}>Logout</Button>
-            <Button size="sm" className="Refresh" onClick={getData}>Refresh Data</Button>
+            <Button size="sm" className="Refresh" disabled={disableRefresh} onClick={getData}>Refresh Data</Button>
             <div className="timer-container">
               <p>Timers</p>
               <table>
