@@ -66,6 +66,7 @@ const Overview = ({
         : (<>
             <Button size="sm" className="Logout" onClick={logoutAction}>Logout</Button>
             <Button size="sm" className="Refresh" disabled={disableRefresh} onClick={getData}>Refresh Data</Button>
+            <Button size="sm" className="Logs" onClick={()=> window.open("https://docs.google.com/spreadsheets/d/1KATozL-bJMRbIVW-kIJARpII-HLeGu7xjLtT4W4gdNw/edit?usp=sharing", "_blank")}>logs</Button>
             <div className="timer-container">
               <p>Timers</p>
               <table>

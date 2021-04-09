@@ -44,6 +44,12 @@ td {
     margin: 10px;
 }
 
+.Logs {
+    position: absolute;
+    right: 0;
+    margin: 10px;
+}
+
 p {
     font-size: calc(20px + 2vmin);
     font-weight: bold;
